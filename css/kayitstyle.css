@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 400px;
+    margin: auto;
+    margin-top: 25px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-top: 10px;
+    color: #28a745; 
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #6c757d;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+select {
+    text-align: center;
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-left: 10px;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 150px; /* Logo genişliği */
+    height: auto; /* Logo yüksekliği otomatik olarak ayarlanacak */
+}
+
+
+.giris{
+
+    margin: 0 auto; /* Yatayda merkezlemek için */
+    text-align: center; /* İçeriği merkeze almak için */
+}

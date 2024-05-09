@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Sayfası</title>
+    <link rel="stylesheet" href="/css/kayitstyle.css">
+</head>
+<body>
+    <div class="container">
+        <img src="/img/ad22Varl.png" alt="Logo" class="logo">
+        <h2>Kayıt Ol</h2>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="firstname">Ad</label>
+                <input type="text" id="firstname" name="firstname" placeholder="Adınızı girin" required>
+            </div>
+            <div class="form-group">
+                <label for="lastname">Soyad</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Soyadınızı girin" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Telefon</label>
+                <input type="tel" id="phone" name="phone" placeholder="Telefon numaranızı girin" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-Posta</label>
+                <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required>
+            </div>
+            <div class="form-group">
+                <label for="role">Rol Seçin</label>
+                <select id="role" name="role" required>
+                    <option value="" disabled selected>Rol seçin</option>
+                    <option value="calisan">Çalışan</option>
+                    <option value="yonetici">Yönetici</option>
+                </select>
+            </div>
+            
+            <a href="/index.html" >
+                <button type="submit">Kayıt Ol</button>
+            </a>
+            <p><a href="/index.html" style=" text-align: center; margin-left: 55px;">Zaten bir hesabınız var mı? Giriş yapın</a></p>
+        </form>
+    </div>
+</body>
+</html>

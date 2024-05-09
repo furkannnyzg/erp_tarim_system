@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(/img/loginBanner.jpg);
+    background-size:cover;
+    background-position: center;
+    
+}
+
+.container {
+    width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin-left: auto;
+    margin-right: 80px;
+    
+}
+
+h2 {
+    text-align: center;
+    margin-top: 10px; 
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #6c757d;
+}
+
+input[type="text"],
+input[type="password"] {
+
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+button:hover {
+    background-color: #218838; 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.register-button {
+    width: 200px;
+    padding: 10px;
+    margin: 10px auto;
+    margin-bottom: 0px;
+    background-color: transparent;
+    border: 2px solid #28a745;
+    color: #28a745; 
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.register-button:hover {
+    background-color: #28a745; 
+    color: #fff;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    top: 20px; 
+    left: 20px;
+}
+
+
+
+
+
