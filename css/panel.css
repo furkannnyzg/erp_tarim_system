@@ -1,27 +1,92 @@
 .drawer {
-    position: absolute;
-    top: 20;
-    left: 0;
-    width: 250px;
-    height: 100vh;
+    position: relative;
+    
+}
+
+.drawer .drawer-content{
+    position: relative;
+    width:80px;
+    height: 630px;
     background-color: #f8f9fa;
     border-right: 1px solid #dee2e6;
-    transition: transform 0.3s ease;
-    transform: translateX(-100%);
-    z-index: 1000;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.drawer .drawer-content.active{
+    width: 200px;
 }
 
-.drawer.active {
-    transform: translateX(0);
+.drawer .drawer-content:hover{
+     color: #8ac942
 }
 
-.drawer-content {
-    padding: 20px;
+.drawer .drawer-content ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
+.drawer .drawer-content ul li{
+    position: relative;
+    list-style: none;
+    width: 100%;
+
+}
+
+
+.drawer .drawer-content ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+.drawer .drawer-content ul li a:hover{
+    color: #8ac942;
+    visibility: visible;
+    opacity: 0.6;
+    transition-duration: 0.8s;
+    
+}
+
+
+.drawer .drawer-content ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 80px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+.drawer .drawer-content ul li a .icon .fas{
+    font-size: 24px;
+}
+.drawer .drawer-content ul li a .title{
+    position: relative;
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+}
+
+
 
 .nav-link {
+    
+    height: 32px;
+    width: 32px;
     color: #343a40;
     font-weight: bold;
+    margin: 10px;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container-fluid {
@@ -34,5 +99,9 @@
     position: absolute;
     top: 3px; 
     right: 20px;
+}
+.navbar-toggler {
+    width: 80px;
+    height:41px;
 }
 

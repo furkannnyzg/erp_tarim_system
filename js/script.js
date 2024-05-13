@@ -1,11 +1,7 @@
-$(document).ready(function(){
-    $('#drawerToggle').click(function(){
-        $('.drawer').toggleClass('active');
-    });
 
-    $(document).click(function(e){
-        if (!$(e.target).closest('.drawer').length && !$(e.target).closest('#drawerToggle').length) {
-            $('.drawer').removeClass('active');
-        }
-    });
-});
+const navigation = document.querySelector('.drawer-content');
+document.querySelector('.navbar-toggler').onclick = function(){
+    this.classList.toggle('active');
+    navigation.classList.toggle('active'); 
+}
+
