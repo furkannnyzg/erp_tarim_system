@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.create-farm {
+    text-align: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-farm h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.create-farm p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.create-farm ol {
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.create-farm ol li {
+    font-size: 16px;
+    margin: 5px 0;
+    list-style-type: none;
+}
+
+.create-farm li:before {
+    content: "🔸";
+    color: orange;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+
+.button-container {
+    text-align: center;
+    
+}
+
+.create-farm-button {
+    background-color: #8BC34A;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.create-farm-button:hover {
+    background-color: #7CB342;
+}

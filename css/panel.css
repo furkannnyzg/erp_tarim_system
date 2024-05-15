@@ -1,5 +1,10 @@
+.navbar{
+    height: 48px;
+}
+
 .drawer {
     width: 80px;
+    float: left;
 }
 
 .drawer .drawer-content {
@@ -17,7 +22,7 @@
 }
 
 .drawer .drawer-content.active {
-    width: 200px;
+    width: 250px;
 }
 
 .drawer .drawer-content:hover {
@@ -86,7 +91,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: 0.8s ease;
+    transition: width 0.8s ease;
     border-right: 2px solid #ddd;
 }
 
@@ -122,35 +127,66 @@
 }
 
 .drawer .drawer-header.active {
-    width: 200px; 
+    width: 250px; 
 }
 
 
-.nav-link {
-    height: 32px;
-    width: 32px;
-    color: #343a40;
-    font-weight: bold;
-    margin: 10px;
-    font-size: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-.container-fluid {
-    margin-left: 250px;
-}
-
-.logo {
-    width: 125px;
-    height: auto;
-    position: absolute;
-    top: 3px; 
-    right: 20px;
-}
 
 .navbar-toggler {
     width: 80px;
-    height: 41px;
+    height: 35px;
 }
+
+.content-area{
+    background-color: #F8F9FA;
+    height: 80px;
+    transition: margin-left 0.8s ease;
+    border-bottom: #ddd solid 1px;
+    
+
+}
+
+.content-area.active{
+
+    margin-left: 200px;
+}
+
+
+.content-area h1{
+    margin-left:80px;
+    padding-top: 20px;
+    font-size: 30px;
+    
+
+}
+
+
+
+.two-screen{
+    transition:ease 0.8s;
+    
+
+}
+.two-screen.active{
+    margin-left: 250px;
+}
+
+#iframe {
+    width: 100vw; /* Ekran genişliğinin tamamını kaplayacak */
+    height: 100vh; /* Ekran yüksekliğinin tamamını kaplayacak */
+    position: fixed; /* Sayfa içinde sabit bir konumda kalacak */
+    border: none; /* Kenarlık olmayacak */
+}
+
+
+
+.moveRight {
+    transform: translateX(100%); /* Sağa doğru kaydırma */
+}
+
+
+
+
+
+
