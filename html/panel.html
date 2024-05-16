@@ -6,85 +6,82 @@
     <title>Panel Tasarım</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/panel.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" id="drawerToggle" ">
+        <button class="navbar-toggler" type="button" id="drawerToggle">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
-        
     </nav>
-
-    
 
     <div class="drawer" id="drawer">
         <div class="drawer-header">
-                <span class="logo"><img src="/img/bakk2.png" alt=""></span>
-                <span class="logo-2"><img src="/img/bakkk3.png" alt=""></span>
+            <span class="logo"><img src="/img/bakk2.png" alt=""></span>
+            <span class="logo-2"><img src="/img/bakkk3.png" alt=""></span>
         </div>
         <div class="drawer-content">
             <ul class="nav flex-column">
                 <li>
                     <a href="#">
-                        <span class="icon"><i class="fas fa-list"></i></span>
-                        <span class="title">Farm List</span>
+                        <span class="icon"><i class="fa-solid fa-house"></i></span>
+                        <span class="title">Tarım Arazi Listesi</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <span class="icon"><i class="fas fa-tachometer-alt "></i></span>
-                        <span class="title">Dashboard</span>
+                        <span class="icon">
+                            <i class="fas fa-list"></i>
+                        </span>
+                        <span class="title">Ana Panel</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
                         <span class="icon"><i class="fas fa-map"></i></span>
-                        <span class="title">Map</span>
+                        <span class="title">Harita</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
                         <span class="icon"><i class="fas fa-tasks"></i></span>
-                        <span class="title">Tasks</span>
+                        <span class="title">Görevler</span>
                     </a>
-                </li><li>
+                </li>
+                
+                <li>
                     <a href="#">
-                        <span class="icon"><i class="fas fa-th-large"></i></span>
-                        <span class="title">Fields</span>
+                        <span class="icon"><i class="fa-solid fa-wheat-awn"></i></span>
+                        <span class="title">Ekin Dönüşümü</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa-solid fa-tractor fa-lg"></i></span>
+                        <span class="title">Ekipmanlar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa-solid fa-user"></i></span>
+                        <span class="title">Çalışanlar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa-solid fa-file-pen"></i></span>
+                        <span class="title">Notlar</span>
                     </a>
                 </li>
             </ul>
         </div>
     </div>
 
-
-    <div class="content-area" id="contentArea">
-        <h1 id="contentTitle">Dashboard</h1>
+    <div class="iframe-container">
+        <iframe src="/html/create.html" id="iframe"></iframe>
     </div>
-
-
-
-    
-    <iframe src="/html/create.html" id="iframe" class="i-frame" ></iframe>
-    
-
-
-
-
-    
-
-
-    
-    
-    
-
-    
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="/js/script.js"></script>
-    
 </body>
 </html>
