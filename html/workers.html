@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çiftlik Çalışanları</title>
+    <link rel="stylesheet" href="/css/workers.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Çiftlik Çalışanları</h1>
+        </div>
+        <div class="main-content">
+            <div class="center-box">
+                <div class="no-employees">
+                    <p>Şu anda hiç çalışanınız yok.</p>
+                    <p>Daha fazla çalışan eklemek için aşağıdaki butona tıklayın.</p>
+                    <div class="add-employee-box" onclick="showAddEmployeeForm()">
+                        <p>Çalışan Ekle</p>
+                    </div>
+                </div>
+                <div class="employee-form" style="display: none;">
+                    <input type="text" id="employeeName" placeholder="Çalışanın Adı">
+                    <input type="text" id="employeePhone" placeholder="Telefon Numarası">
+                    <input type="text" id="employeeJob" placeholder="Atandığı İş">
+                    <button onclick="addEmployee()">Ekle</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="button-container">
+                <div class="green-button">
+                    <p>Ekle</p>
+                </div>
+                <div class="red-button">
+                    <p>Sil</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/workers.js"></script>
+</body>
+</html>
