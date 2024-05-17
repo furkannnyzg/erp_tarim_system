@@ -131,14 +131,21 @@
     width: 80px;
     height: 35px;
 }
+.nav-icon{
+    margin-right: 30px;
+    font-size: 24px;
+    margin-left: 30px;
+
+
+}
 
 .iframe-container {
     transition: margin-left 0.8s ease;
-    margin-left: 80px; /* Varsayılan olarak menü kapalı */
+    margin-left: 80px;
 }
 
 .iframe-container.active {
-    margin-left: 250px; /* Menü açıldığında */
+    margin-left: 250px; 
 }
 
 #iframe {
@@ -146,18 +153,32 @@
     height: 100vh;
     border: none;
     position: fixed;
-}
-
-
-.nav-icon{
-    margin-right: 30px;
-    font-size: 24px;
-    margin-left: 30px;
-
     
-
-
+    transition: transform 0.8s ease;
 }
+
+#iframe.slide-out {
+    transform: translateX(+100%);
+}
+
+#iframe.slide-in {
+    transform: translateX(0);
+}
+
+.iframe-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
 
 
 

@@ -8,3 +8,20 @@ document.querySelector('.navbar-toggler').onclick = function() {
     iframeContainer.classList.toggle('active');
 };
 
+
+document.querySelectorAll('.drawer-content ul li a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const url = this.getAttribute('data-url');
+        iframe.classList.add('slide-out');
+        setTimeout(() => {
+            iframe.src = url;
+            iframe.classList.remove('slide-out');
+            iframe.classList.add('slide-in');
+            setTimeout(() => {
+                iframe.classList.remove('slide-in');
+            }, 800);
+        }, 800);
+    });
+});
+
