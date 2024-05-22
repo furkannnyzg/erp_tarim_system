@@ -30,21 +30,21 @@
 }
 
 .create-farm ol {
-    padding-left:15px ; /* Liste stilini sıfırlayalım */
+    padding-left:15px ; 
 }
 
 .create-farm ol li {
-    display: flex; /* Elemanları yatayda hizalayalım */
-    align-items: center; /* Dikeyde hizalamak için */
-    margin-bottom: 10px; /* Boşluk ekleyelim */
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 10px; 
 }
 
 .create-farm ol li .icon {
-    margin-right: 10px; /* İkon ile metin arasına boşluk koyalım */
+    margin-right: 10px; 
 }
 
 .create-farm ol li .title {
-    font-size: 16px; /* Yazı boyutunu küçültelim */
+    font-size: 16px; 
 }
 
 .create-farm-button {
@@ -71,7 +71,7 @@
 .drawer .drawer-container {
     position: relative;
     width: 0px;
-    height: 575px;
+    height: 542px;
     background-color: #f8f9fa;
     border-right: 1px solid #dee2e6;
     overflow: hidden;
@@ -97,7 +97,7 @@
     border-bottom: #ddd solid 1px;
     overflow: hidden;
     display: flex;
-    flex-direction: column;
+    
     transition: 0.8s ease;
     border-right: 2px solid #ddd;
 }
@@ -132,3 +132,53 @@
     width: 460px;
 }
 
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    
+}
+
+.close{
+    margin-left: 250px;
+    margin-top: 20px;
+}
+
+
+.create-worker{
+    background-color: #8BC34A;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 30px;
+
+}
+.create-worker:hover{
+
+    background-color: #7CB342;
+}
+
+
+
+.close-button-2 {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    
+}
+
+.close-2{
+    margin-left: 300px;
+    margin-top: 20px;
+}

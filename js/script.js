@@ -25,3 +25,16 @@ document.querySelectorAll('.drawer-content ul li a').forEach(link => {
     });
 });
 
+
+// İframe'i seç
+var iframe = document.getElementById('iframe');
+
+// İframe'in boyutunu küçültmek için bir fonksiyon oluştur
+function kucultIframe() {
+    iframe.style.width = '1465px'; // İframe'in genişliğini küçült
+    iframe.style.height = '699px'; // İframe'in yüksekliğini küçült
+}
+
+// İframe'i küçült fonksiyonunu çağır
+kucultIframe();
+
