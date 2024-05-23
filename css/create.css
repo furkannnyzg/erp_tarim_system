@@ -30,21 +30,21 @@
 }
 
 .create-farm ol {
-    padding-left:15px ; 
+    padding-left: 15px;
 }
 
 .create-farm ol li {
-    display: flex; 
-    align-items: center; 
-    margin-bottom: 10px; 
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .create-farm ol li .icon {
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
 .create-farm ol li .title {
-    font-size: 16px; 
+    font-size: 16px;
 }
 
 .create-farm-button {
@@ -62,12 +62,11 @@
     background-color: #7CB342;
 }
 
-
 .drawer {
     width: 80px;
     float: left;
-    
 }
+
 .drawer .drawer-container {
     position: relative;
     width: 0px;
@@ -82,22 +81,19 @@
     border-right: 2px solid #ddd;
 }
 
-.drawer .drawer-container.active{
+.drawer .drawer-container.active {
     width: 460px;
 }
 
-
-
 .drawer .drawer-header {
     position: relative;
-    width:0px;
+    width: 0px;
     height: 80px;
     background-color: #f8f9fa;
     border-right: 1px solid #dee2e6;
     border-bottom: #ddd solid 1px;
     overflow: hidden;
     display: flex;
-    
     transition: 0.8s ease;
     border-right: 2px solid #ddd;
 }
@@ -142,16 +138,14 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
-    
 }
 
-.close{
+.close {
     margin-left: 250px;
     margin-top: 20px;
 }
 
-
-.create-worker{
+.create-worker {
     background-color: #8BC34A;
     color: white;
     border: none;
@@ -161,24 +155,33 @@
     cursor: pointer;
     transition: background-color 0.3s;
     margin-right: 30px;
-
 }
-.create-worker:hover{
 
+.create-worker:hover {
     background-color: #7CB342;
 }
-
-
 
 .close-button-2 {
     background: none;
     border: none;
     font-size: 24px;
     cursor: pointer;
-    
 }
 
-.close-2{
+.close-2 {
     margin-left: 300px;
     margin-top: 20px;
+}
+
+.worker-item {
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f8f9fa;
+}
+
+
+#workers-list {
+    display: block; /* Gözükmesi için display block olarak ayarlanmış */
 }

@@ -9,64 +9,158 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
 
+    <style>
+        #workers-list {
+            border: 1px solid #ddd; /* Görünür bir kenarlık */
+            min-height: 50px; /* İçerik olmadan bile görünmesini sağlamak için minimum yükseklik ekleyin */
+            padding: 10px; /* İçerideki öğelerin daha iyi görünmesi için padding ekleyin */
+            background-color: #f9f9f9; /* Daha iyi görünürlük için arka plan rengi ekleyin */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; /* İçerikleri sağa hizalayın */
+        }
+        .worker-item {
+            margin-bottom: 10px; /* Her işçi arasında biraz boşluk bırakın */
+            width: 100%; /* İşçi öğesinin tam genişliğini kullanın */
+            text-align: left; /* İçeriği sağa hizalayın */
+        }
+    </style>
+
 </head>
 <body>
-
     <nav class="navbar navbar-dark" style="background-color: #F8F9FA; border-bottom: #ddd solid 1px;">
         <h1 style="color:black; padding-left: 15px; font-size: 30px;">İşçi Listesi</h1>
-        <button class="create-worker">İşçi Ekle</button>
+        <button class="create-worker" onclick="openDrawer()">İşçi Ekle</button>
     </nav>
 
     <div class="drawer" id="drawer">
         <div class="drawer-header">
-            <h1 style="font-size: 20px; padding-left: 20px;
-            padding-top: 25px;">İşçi Ekle</h1>
-            <div class="close-2"><button class="close-button-2" onclick="closeDrawer()">
-                <i class="fa fa-times" aria-hidden="true"></i>
-            </button>
-        </div>
-            
+            <h1 style="font-size: 20px; padding-left: 20px; padding-top: 25px;">İşçi Ekle</h1>
+            <div class="close-2">
+                <button class="close-button-2" onclick="closeDrawer()">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
         </div>
 
-        
         <div class="drawer-container">
             <form id="create-farm-form">
-                <label for="farm-name">İsim</label>
-                <input type="text" id="farm-name" name="farm-name" class="form-control" placeholder="İsim gir" required>
-                <label for="farm-name">Soy İsim</label>
-                <input type="text" id="farm-name" name="farm-name" class="form-control" placeholder="Soy isim gir" required>
-                
-                <label for="farm-name">Telefon Numarası</label>
-                <input type="text" id="farm-name" name="farm-name" class="form-control" placeholder="Telefon Numarasını gir" required>
-
-                <label for="farm-name">Mail Adresi</label>
-                <input type="text" id="farm-name" name="farm-name" class="form-control" placeholder="Mail Adresini Gir" required>
-
-
-                
-
-
-
-
+                <label for="worker-name">İsim</label>
+                <input type="text" id="worker-name" name="worker-name" class="form-control" placeholder="İsim gir" required>
+                <label for="worker-surname">Soy İsim</label>
+                <input type="text" id="worker-surname" name="worker-surname" class="form-control" placeholder="Soy isim gir" required>
+                <label for="worker-number">Telefon Numarası</label>
+                <input type="text" id="worker-number" name="worker-number" class="form-control" placeholder="Telefon Numarasını gir" required>
+                <label for="worker-mail">Mail Adresi</label>
+                <input type="text" id="worker-mail" name="worker-mail" class="form-control" placeholder="Mail Adresini Gir" required>
                 <div class="form-buttons mt-3">
                     <button type="submit" class="btn btn-success" style="margin-right: 10px;">Create</button>
                     <button type="button" class="btn btn-warning" style="margin-right: 10px;" onclick="resetForm()">Reset</button>
                     <button type="button" class="btn btn-danger" onclick="closeDrawer()">Cancel</button>
                 </div>
             </form>
-            
         </div>
-        
     </div>
 
+    <div id="workers-list" class="container mt-4">
+        <!-- İşçiler buraya eklenecek -->
+    </div>
 
+    
 
-
-</div>
-
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="/js/workers2.js"></script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+    <!-- Firebase SDK'ları -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+        import { getDatabase, ref, set, onValue, push } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-analytics.js";
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "YOUR_API_KEY",
+          authDomain: "erptarimsystem.firebaseapp.com",
+          databaseURL: "https://erptarimsystem-default-rtdb.firebaseio.com",
+          projectId: "erptarimsystem",
+          storageBucket: "erptarimsystem.appspot.com",
+          messagingSenderId: "997520316141",
+          appId: "1:997520316141:web:60f7c15f788711880e5ee4",
+          measurementId: "G-BYNHC0WR23"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const analytics = getAnalytics(app);
+      
+        // Firebase Realtime Database referansı alma
+        const workerFormDB = ref(database, "worker-form");
+      
+        // Form gönderildiğinde işçi ekleme
+        document.getElementById('create-farm-form').addEventListener("submit", (e) => {
+          e.preventDefault();
+          const name = getElementVal('worker-name');
+          const surname = getElementVal('worker-surname');
+          const number = getElementVal('worker-number');
+          const mail = getElementVal('worker-mail');
+      
+          console.log(name, surname, number, mail);
+      
+          saveMessages(name, surname, number, mail);
+      
+          // Formu sıfırla ve drawer'ı kapat
+          resetForm();
+          closeDrawer();
+      
+          // İşçileri yeniden yükle
+          fetchWorkers();
+        });
+      
+        const getElementVal = (id) => {
+          return document.getElementById(id).value;
+        };
+      
+        const saveMessages = (name, surname, number, mail) => {
+          const newWorkerForm = push(workerFormDB);
+          set(newWorkerForm, {
+            name: name,
+            surname: surname,
+            number: number,
+            mail: mail
+          });
+        };
+      
+        const fetchWorkers = () => {
+          onValue(workerFormDB, (snapshot) => {
+            const workersList = document.getElementById('workers-list');
+            workersList.innerHTML = '';
+      
+            if (snapshot.exists()) {
+              snapshot.forEach((childSnapshot) => {
+                const worker = childSnapshot.val();
+                console.log(worker); // Firebase'den gelen veriyi kontrol et
+                
+                const workerElement = document.createElement('div');
+                workerElement.classList.add('worker-item');
+                workerElement.innerHTML = `
+                  <p><strong>İsim:</strong> ${worker.name}</p>
+                  <p><strong>Soy İsim:</strong> ${worker.surname}</p>
+                  <p><strong>Telefon:</strong> ${worker.number}</p>
+                  <p><strong>Mail:</strong> ${worker.mail}</p>
+                  <hr>
+                `;
+                workersList.appendChild(workerElement);
+              });
+            } else {
+              console.log("No data available");
+            }
+          }, (error) => {
+            console.error("Error fetching workers:", error);
+          });
+        };
+      
+        document.addEventListener('DOMContentLoaded', fetchWorkers);
+      </script>
+      
 </body>
 </html>
