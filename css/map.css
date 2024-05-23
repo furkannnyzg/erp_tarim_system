@@ -1,0 +1,16 @@
+.navbar {
+    height: 80px;
+}
+
+/* map.css */
+.navbar {
+    height: 80px;
+}
+
+#map {
+    width: 100%;
+    height: calc(100vh - 80px); /* Navbarın yüksekliğini düşerek hesaplar */
+}
+
+
+

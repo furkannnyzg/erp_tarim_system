@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Display a map on a webpage</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2; 
+}
+
+.navbar {
+    height: 80px;
+    
+}
+
+#map { position: fixed; top: 80px; bottom: 0; width: 100%; }
+
+
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-dark" style="background-color: #F8F9FA; border-bottom: #ddd solid 1px;">
+        <h1 style="color:black; padding-left: 15px; font-size: 30px;">Harita</h1>
+    </nav>
+<div class="map-style"><div id="map" class="mapp"></div></div>
+
+
+
+<script>
+	// map.js
+mapboxgl.accessToken = 'pk.eyJ1IjoiZnVya2FueXpnIiwiYSI6ImNsd2k3bncwdzBodTEyaXVrNG52bXA5cDQifQ.3V5xzM7SJP6mVZGmpq5KrQ'; // Kendi Mapbox erişim anahtarınızı buraya ekleyin
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/satellite-v9', // Harita stili uydu görüntüsü olarak değiştirildi
+    center: [0, 0], // Başlangıç konumu [longitude, latitude]
+    zoom: 2 // Başlangıç yakınlaştırma seviyesi
+});
+
+map.addControl(new mapboxgl.NavigationControl());
+
+document.getElementById('go-button').addEventListener('click', function() {
+    var location = document.getElementById('location-input').value;
+
+    // Eğer girilen değer koordinat ise (latitude, longitude)
+    if (location.includes(',')) {
+        var coords = location.split(',').map(function(item) {
+            return parseFloat(item.trim());
+        });
+
+        if (coords.length === 2 && !isNaN(coords[0]) && !isNaN(coords[1])) {
+            map.flyTo({
+                center: coords,
+                essential: true, // Bu animasyonun kullanıcının erişilebilirliği için gerekli olduğunu belirtir
+                zoom: 12
+            });
+        } else {
+            alert('Please enter valid coordinates.');
+        }
+    } else {
+        // Girilen değer adres ise
+        var geocodingUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(location)}.json?access_token=${mapboxgl.accessToken}`;
+
+        fetch(geocodingUrl)
+            .then(response => response.json())
+            .then(data => {
+                if (data.features && data.features.length > 0) {
+                    var center = data.features[0].center;
+                    map.flyTo({
+                        center: center,
+                        essential: true,
+                        zoom: 12
+                    });
+                } else {
+                    alert('Location not found.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while searching for the location.');
+            });
+    }
+});
+
+</script>
+
+</body>
+</html>
